@@ -22,7 +22,7 @@ export default function AdContainer({ slotId, format = 'auto', className, debugL
     return (
         <div
             ref={adRef}
-            className={`ad-container my-8 min-h-[100px] flex items-center justify-center bg-slate-100 dark:bg-slate-800 border border-dashed border-slate-300 dark:border-slate-700 print:hidden ${className || ''}`}
+            className={`ad-container my-8 min-h-[100px] flex items-center justify-center bg-white/5 border border-dashed border-white/10 print:hidden ${className || ''}`}
             role="complementary"
             aria-label="Advertisement"
         >

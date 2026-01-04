@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { Merriweather, Inter } from "next/font/google"; // Heavenly Fonts
+import { Crimson_Pro, Cormorant_Garamond, Inter } from "next/font/google"; // Divine Fonts
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 
-const merriweather = Merriweather({
-  weight: ["300", "400", "700", "900"],
+// Body / Scripture Text
+const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
   variable: "--font-serif",
+});
+
+// Display / Headings (Ancient Inscription feel)
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-display",
 });
 
 const inter = Inter({
@@ -27,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${merriweather.variable} ${inter.variable} antialiased bg-saffron-50 text-slate-800 font-sans`}
+        className={`${crimsonPro.variable} ${cormorant.variable} ${inter.variable} antialiased bg-sandstone-50 text-stone-800 font-serif`}
       >
         <Navbar />
         {children}
