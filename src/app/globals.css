@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --font-serif: "Merriweather", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@theme {
+  --color-saffron-50: #fff8f1;
+  --color-saffron-100: #feefc3;
+  --color-saffron-500: #f59e0b;
+  --color-saffron-600: #d97706;
+  --color-saffron-700: #b45309;
+  
+  --color-gold-500: #eab308;
+  --color-gold-600: #ca8a04;
+}
+
+@utility bg-heavenly {
+  background: radial-gradient(circle at 50% 0%, #fff7ed 0%, #ffedd5 40%, #fdba74 100%);
+}
+
+@utility bg-sunrise {
+  background: linear-gradient(180deg, #fefce8 0%, #fef3c7 50%, #fde68a 100%);
+}
+
+@utility text-gold-gradient {
+  background: linear-gradient(to right, #b45309, #d97706, #b45309);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+body {
+  background-color: var(--color-saffron-50);
+  color: #1a1a1a;
+}

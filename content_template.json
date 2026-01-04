@@ -1,0 +1,21 @@
+[
+  {
+    "slug": "hanuman-chalisa",
+    "category": "bhajans",
+    "day_of_week": 2, 
+    "translations": [
+      {
+        "language": "sa",
+        "title": "श्री हनुमान चालीसा",
+        "body_text": "श्रीगुरु चरन सरोज रज...",
+        "transliteration": "Shri Guru Charan Saroj Raj..."
+      },
+      {
+        "language": "en",
+        "title": "Hanuman Chalisa",
+        "body_text": "With the dust of Guru's Lotus feet...",
+        "transliteration": null
+      }
+    ]
+  }
+]

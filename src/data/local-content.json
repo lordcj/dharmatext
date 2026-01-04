@@ -1,0 +1,50 @@
+[
+    {
+        "slug": "hanuman-chalisa",
+        "category": "bhajans",
+        "translations": [
+            {
+                "language_code": "hi",
+                "title": "श्री हनुमान चालीसा",
+                "body_text": "## दोहा\nश्रीगुरु चरन सरोज रज निज मनु मुकुरु सुधारि।\nबरनउँ रघुबर बिमल जसु जो दायकु फल चारि।।\nबुद्धिहीन तनु जानिके सुमिरौं पवन-कुमार।\nबल बुद्धि बिद्या देहु मोहिं हरहु कलेस बिकार।।\n\n## चौपाई\nजय हनुमान ज्ञान गुन सागर।\nजय कपीस तिहुँ लोक उजागर।।\nराम दूत अतुलित बल धामा।\nअंजनि-पुत्र पवनसुत नामा।।\nमहाबीर बिक्रम बजरंगी।\nकुमति निवार सुमति के संगी।।",
+                "transliteration": "Shri Guru Charan Saroj Raj Nij Manu Mukuru Sudhari..."
+            },
+            {
+                "language_code": "en",
+                "title": "Hanuman Chalisa",
+                "body_text": "## Doha\nCleansing the mirror of my mind with the dust from the Lotus-feet of Divine Guru, I describe the unblemished glory of Lord Rama, which bestows four fruits of life (Dharma, Artha, Kama, Moksha).\n\nConsidering myself devoid of intelligence, I meditate on you, O Son of the Wind. Grant me strength, intelligence, and wisdom, and remove my sorrows and shortcomings.\n\n## Chaupai\nVictory to Hanuman, the ocean of wisdom and virtue.\nVictory to the Lord of Monkeys, who is well known in all three worlds.\nMessenger of Rama, abode of incomparable strength.\nSon of Anjani, also known as Pavan-Sutra (Son of Wind).",
+                "transliteration": null
+            }
+        ]
+    },
+    {
+        "slug": "om-jai-jagdish-hare",
+        "category": "aartis",
+        "translations": [
+            {
+                "language_code": "hi",
+                "title": "ॐ जय जगदीश हरे",
+                "body_text": "ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।\nभक्त जनों के संकट, दास जनों के संकट,\nक्षण में दूर करे, ॐ जय जगदीश हरे॥\n\nजो ध्यावे फल पावे, दुःख बिनसे मन का,\nस्वामी दुःख बिनसे मन का।\nसुख सम्पति घर आवे, सुख सम्पति घर आवे,\nकष्ट मिटे तन का, ॐ जय जगदीश हरे॥",
+                "transliteration": "Om Jai Jagdish Hare, Swami Jai Jagdish Hare..."
+            },
+            {
+                "language_code": "en",
+                "title": "Om Jai Jagdish Hare",
+                "body_text": "Om, Victory to You, O Lord of the Universe,\nYou remove the troubles of your devotees in an instant.\nOm, Victory to You, O Lord of the Universe.\n\nHe who meditates on You attains the fruits,\nAnd the sorrows of the mind are destroyed.\nHappiness and wealth come to his home,\nAnd physical pain is removed.",
+                "transliteration": null
+            }
+        ]
+    },
+    {
+        "slug": "aditya-hridaya-stotra",
+        "category": "bhajans",
+        "translations": [
+            {
+                "language_code": "sa",
+                "title": "आदित्यहृदय स्तोत्रम्",
+                "body_text": "ततो युद्धपरिश्रान्तं समरे चिन्तया स्थितम्।\nरावणं चाग्रतो दृष्ट्वा युद्धाय समुपस्थितम्॥१॥\nदैवतैश्च समागम्य द्रष्टुमभ्यागतो रणम्।\nउपगम्याब्रवीद् राममगस्त्यो भगवान् ऋषिः॥२॥",
+                "transliteration": "tato yuddhapariśrāntaṃ samare cintayā sthitam..."
+            }
+        ]
+    }
+]
