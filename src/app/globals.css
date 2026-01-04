@@ -6,39 +6,148 @@
 }
 
 @theme {
-  --color-saffron-50: #fff8f1;
-  --color-saffron-100: #feefc3;
-  --color-saffron-500: #f59e0b;
-  --color-saffron-600: #d97706;
-  --color-saffron-700: #b45309;
-  
-  --color-gold-500: #eab308;
-  --color-gold-600: #ca8a04;
+  /* Vedic Earth Palette - The Temple Sanctum */
+  --color-sandstone-50: #FDFBF7;
+  /* Main Page BG (Ecru) */
+  --color-sandstone-100: #F5F5F4;
+  /* Card BG (Stone-100) */
+  --color-sandstone-200: #E7E5E4;
+  /* Borders (Stone-200) */
+
+  --color-stone-600: #57534e;
+  /* Secondary Text */
+  --color-stone-800: #292524;
+  /* Primary Text */
+  --color-stone-900: #1c1917;
+  /* Headings */
+
+  --color-bronze-500: #d97706;
+  /* Amber 600 */
+  --color-bronze-600: #b45309;
+  /* Amber 700 - Primary Accent */
+  --color-bronze-900: #78350f;
+  /* Amber 900 - Deep Accent */
+
+  /* Legacy overrides for backward compatibility */
+  --color-saffron-50: var(--color-sandstone-50);
+  --color-gold-500: var(--color-bronze-500);
+  --color-gold-600: var(--color-bronze-600);
 }
 
-@utility bg-heavenly {
-  background: radial-gradient(circle at 50% 0%, #fff7ed 0%, #ffedd5 40%, #fdba74 100%);
+.bg-heavenly {
+  /* Subtle Divine Atmosphere - Light filtering through dust */
+  background: radial-gradient(circle at 50% 0%, #FFFBEB 0%, #FEF3C7 60%, #FDFBF7 100%);
 }
 
-@utility bg-sunrise {
-  background: linear-gradient(180deg, #fefce8 0%, #fef3c7 50%, #fde68a 100%);
+.bg-sunrise {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F4 100%);
 }
 
-@utility text-gold-gradient {
-  background: linear-gradient(to right, #b45309, #d97706, #b45309);
+.text-gold-gradient {
+  /* Richer, darker text gradient */
+  background: linear-gradient(to right, #78350f, #b45309, #78350f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-@utility glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+.glass-panel {
+  /* Heavy Cardstock Effect instead of Glass */
+  background: #FFFFFF;
+  border: 1px solid var(--color-sandstone-200);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 body {
-  background-color: var(--color-saffron-50);
-  color: #1a1a1a;
+  background-color: var(--color-sandstone-50);
+  color: var(--color-stone-800);
+}
+
+/* Animations */
+/* Animations */
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes float-breathe {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-shine {
+  animation: shine 4s linear infinite;
+}
+
+.animate-float-breathe {
+  animation: float-breathe 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 60s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 45s linear infinite;
+}
+
+.text-liquid-gold {
+  background: linear-gradient(to right,
+      #78350f 20%,
+      /* Amber 900 - Deep Shadow */
+      #b45309 40%,
+      /* Amber 700 - Rich Gold */
+      #f59e0b 50%,
+      /* Amber 500 - Highlight */
+      #b45309 60%,
+      /* Amber 700 - Rich Gold */
+      #78350f 80%
+      /* Amber 900 - Deep Shadow */
+    );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.god-rays {
+  background: repeating-conic-gradient(from 0deg,
+      transparent 0deg 15deg,
+      rgba(217, 119, 6, 0.15) 15deg 30deg
+      /* Colored rays */
+    );
+  mask-image: radial-gradient(circle, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
 }
