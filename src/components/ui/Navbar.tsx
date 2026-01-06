@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Search } from 'lucide-react';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isHomePage = pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,11 +26,18 @@ export default function Navbar() {
         { name: 'Scriptures', href: '/scriptures' },
     ];
 
+    // Logic:
+    // 1. Transparency: Only on Home Page when at the top. Everywhere else is Glass.
+    const isGlass = !isHomePage || isScrolled;
+
+    // 2. Dimensions: Always 88px at top, shrinks to 72px on scroll.
+    const heightClass = isScrolled ? 'py-4 h-[72px]' : 'py-6 h-[88px]';
+
     return (
         <nav
-            className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${isScrolled
-                ? 'bg-[#0f172a]/80 backdrop-blur-md shadow-lg border-b border-white/10 py-4' // Increased padding
-                : 'bg-transparent py-6' // Larger padding at top for impact
+            className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out border-b border-transparent ${heightClass} ${isGlass
+                ? 'bg-[#020617]/40 backdrop-blur-[40px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border-white/5'
+                : 'bg-transparent'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

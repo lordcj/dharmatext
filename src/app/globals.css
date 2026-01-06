@@ -32,6 +32,25 @@
   --color-gold-500: #f59e0b;
   /* Amber 500 */
 
+  /* Theme-Specific Colors */
+  /* Krishna Theme */
+  --color-peacock-500: #0ea5e9;
+  /* Sky Blue */
+  --color-peacock-900: #0c4a6e;
+  /* Deep Blue */
+
+  /* Shiva Theme */
+  --color-ash-500: #9ca3af;
+  /* Gray/Mist */
+  --color-rudra-900: #4c1d95;
+  /* Deep Violet/Darkness */
+
+  /* Devi Theme */
+  --color-lotus-500: #ec4899;
+  /* Pink/Crimson */
+  --color-shakti-900: #881337;
+  /* Deep Red */
+
   /* Legacy mapping for compatibility */
   --color-sandstone-50: var(--color-cosmic-950);
   --color-stone-800: var(--color-starlight-50);
@@ -62,10 +81,12 @@ body {
 }
 
 .glass-panel {
-  background: var(--color-glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-glass-border);
+  background: rgba(2, 6, 23, 0.4);
+  /* cosmic-950/40 */
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Extremely subtle border */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
