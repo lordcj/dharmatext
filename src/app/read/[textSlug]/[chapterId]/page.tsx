@@ -94,7 +94,7 @@ export default function ReadingPage({ params }: { params: Promise<{ textSlug: st
 
                 {/* Chapter Header */}
                 <div className="text-center mb-12 space-y-4">
-                    <h1 className={`text-4xl md:text-6xl font-cinzel font-bold bg-gradient-to-r ${titleGradient} bg-clip-text text-transparent drop-shadow-lg p-2 uppercase tracking-wide`}>
+                    <h1 className={`text-4xl md:text-6xl font-[family-name:var(--font-cinzel)] font-bold bg-gradient-to-r ${titleGradient} bg-clip-text text-transparent drop-shadow-lg p-2 uppercase tracking-widest`}>
                         {displayTitle}
                     </h1>
                     {displayTranslation && (

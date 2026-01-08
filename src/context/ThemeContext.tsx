@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-type ThemeType = 'krishna' | 'shiva' | 'devi' | 'default';
+type ThemeType = 'krishna' | 'shiva' | 'devi' | 'hanuman' | 'vishnu' | 'trimurti' | 'default';
 
 interface ThemeContextType {
     currentTheme: ThemeType;
@@ -27,15 +27,27 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
                 setAccentColor('text-peacock-500');
                 break;
             case 'shiva':
-                setBgGradient('radial-gradient(circle at 50% 0%, #2e1065 0%, #020617 60%, #000000 100%)'); // Rudra Deep
+                setBgGradient('#020617'); // Solid Rudra Deep
                 setAccentColor('text-ash-500');
                 break;
             case 'devi':
-                setBgGradient('radial-gradient(circle at 50% 0%, #881337 0%, #020617 60%, #000000 100%)'); // Shakti Deep
+                setBgGradient('#020617'); // Solid Shakti Deep
                 setAccentColor('text-lotus-500');
                 break;
+            case 'hanuman':
+                setBgGradient('transparent'); // Handled by BackgroundManager
+                setAccentColor('text-orange-500');
+                break;
+            case 'vishnu':
+                setBgGradient('transparent'); // Handled by BackgroundManager
+                setAccentColor('text-blue-500');
+                break;
+            case 'trimurti':
+                setBgGradient('transparent'); // Handled by BackgroundManager
+                setAccentColor('text-amber-500');
+                break;
             default:
-                setBgGradient('radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 60%, #000000 100%)'); // Cosmic Default
+                setBgGradient('#020617'); // Solid Cosmic Default
                 setAccentColor('text-gold-500');
         }
     }, [currentTheme]);

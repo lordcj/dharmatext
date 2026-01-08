@@ -110,7 +110,7 @@ export default function ChapterIndexPage({ params }: { params: Promise<{ textSlu
                                         <span className="font-serif font-bold text-xl">{chapter.id}</span>
                                     </div>
                                     <div className="text-left">
-                                        <h3 className="text-xl font-serif font-medium text-starlight-50 group-hover:text-gold-400 transition-colors">
+                                        <h3 className="text-xl font-[family-name:var(--font-cinzel)] font-semibold text-starlight-50 group-hover:text-gold-400 transition-colors tracking-wide">
                                             {chapter.title}
                                         </h3>
                                         <p className="text-sm text-starlight-400 mt-1">

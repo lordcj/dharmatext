@@ -10,7 +10,7 @@ const scriptures = [
         id: 'bhagavad-gita',
         title: 'Bhagavad Gita',
         description: 'The divine song of God. A conversation between Prince Arjuna and Krishna.',
-        imagePath: '/images/bhagavad-gita.png',
+        imagePath: '/images/bhagavad-gita.webp',
         slug: 'bhagavad-gita',
         verseCount: '700 Verses'
     },
@@ -18,7 +18,7 @@ const scriptures = [
         id: 'shiva-purana',
         title: 'Shiva Purana',
         description: 'The glory of the Great God Shiva, creator and destroyer of the universe.',
-        imagePath: '/images/shiva-purana.png',
+        imagePath: '/images/shiva-purana.webp',
         slug: 'shiva-purana',
         verseCount: '24,000 Verses'
     },
@@ -26,7 +26,7 @@ const scriptures = [
         id: 'devi-mahatmya',
         title: 'Devi Mahatmya',
         description: 'The victory of the Goddess Durga over the buffalo demon Mahishasura.',
-        imagePath: '/images/devi-mahatmya.png',
+        imagePath: '/images/devi-mahatmya.webp',
         slug: 'devi-mahatmya',
         verseCount: '700 Verses'
     },

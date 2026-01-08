@@ -16,7 +16,7 @@ export default function BackgroundManager() {
             {currentTheme === 'krishna' && (
                 <>
                     {/* 1. Base Dark Layer (Since Parent is Transparent) */}
-                    <div className="absolute inset-0 bg-radial-at-t from-cosmic-900 to-black"></div>
+                    <div className="absolute inset-0 bg-cosmic-950"></div>
 
                     {/* 2. Vibrant Image Layer (Side Frame) */}
                     <div
@@ -50,9 +50,46 @@ export default function BackgroundManager() {
                 </>
             )}
 
+            {/* HANUMAN THEME: Devotion & Strength */}
+            {currentTheme === 'hanuman' && (
+                <>
+                    {/* 1. Base Dark Layer */}
+                    <div className="absolute inset-0 bg-cosmic-950"></div>
+
+                    {/* 2. Side Image Layer (Hanuman) */}
+                    <div
+                        className="absolute inset-0 bg-[url('/images/hanuman-chalisa.png')] bg-[length:auto_90%] bg-no-repeat bg-right-bottom md:bg-left-bottom opacity-15 grayscale hover:grayscale-0 transition-all duration-1000"
+                        style={{ filter: 'contrast(1.2)' }}
+                    />
+
+                    {/* 3. Subtle floating glow - Gold/Orange */}
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-500/5 blur-[100px] rounded-full animate-float-breathe"></div>
+                </>
+            )}
+
+            {/* TRIMURTI THEME: Cosmic Harmony (Brahma, Vishnu, Shiva) */}
+            {currentTheme === 'trimurti' && (
+                <>
+                    {/* 1. Base Dark Layer */}
+                    <div className="absolute inset-0 bg-cosmic-950"></div>
+
+                    {/* 2. Side Image Layer (Trimurti) */}
+                    <div
+                        className="absolute inset-0 bg-[url('/images/om-jai-jagdish.png')] bg-[length:auto_90%] bg-no-repeat bg-right-bottom md:bg-left-bottom opacity-15 grayscale hover:grayscale-0 transition-all duration-1000"
+                        style={{ filter: 'contrast(1.2)' }}
+                    />
+
+                    {/* 3. Subtle floating glow - Amber/Gold */}
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/10 blur-[100px] rounded-full animate-float-breathe"></div>
+                </>
+            )}
+
             {/* DEFAULT: Cosmic */}
             {currentTheme === 'default' && (
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/5 blur-[100px] rounded-full animate-spin-slow-reverse"></div>
+                <>
+                    <div className="absolute inset-0 bg-cosmic-950"></div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/5 blur-[100px] rounded-full animate-spin-slow-reverse"></div>
+                </>
             )}
 
         </div>

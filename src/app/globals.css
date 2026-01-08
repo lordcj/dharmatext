@@ -4,6 +4,10 @@
   --font-serif: "Crimson Pro", serif;
   --font-display: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
+  --font-sanskrit: "Tiro Devanagari Sanskrit", serif;
+  --font-noto-devanagari: "Noto Serif Devanagari", serif;
+  --font-lora: "Lora", serif;
+  --font-garamond: "EB Garamond", serif;
 }
 
 @theme {
@@ -60,7 +64,7 @@
 
 /* Base Body - Deep Cosmic Gradient */
 body {
-  background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #020617 60%, #000000 100%);
+  background: var(--color-cosmic-950);
   background-attachment: fixed;
   /* Parallax feel */
   color: var(--color-starlight-50);

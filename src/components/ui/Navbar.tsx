@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -20,7 +20,6 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: 'Bhajans', href: '/bhajans' }, // Updated paths to be direct
         { name: 'Kathas', href: '/kathas' },
         { name: 'Aartis', href: '/aartis' },
         { name: 'Scriptures', href: '/scriptures' },
@@ -77,13 +76,8 @@ export default function Navbar() {
                         ))}
                     </div>
 
-                    {/* Mobile Menu Toggle & Search Link */}
+                    {/* Mobile Menu Toggle */}
                     <div className="flex items-center gap-4 md:hidden">
-
-                        <Link href="/search" className="p-2 text-starlight-50 hover:text-gold-400">
-                            <Search className="w-6 h-6" />
-                        </Link>
-
                         <button
                             className="p-2 text-starlight-50 hover:bg-white/10 rounded-full transition-colors"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
