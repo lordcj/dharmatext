@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { kathas } from '@/data/kathas';
 
+// Force rebuild
+
+
 export default function KathasPage() {
     return (
         <main className="min-h-screen bg-sandstone-50 font-serif pb-20">
