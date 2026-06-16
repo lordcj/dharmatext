@@ -55,7 +55,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     return (
         <ThemeContext.Provider value={{ currentTheme, setTheme: setCurrentTheme, bgGradient, accentColor }}>
             <div
-                style={{ background: bgGradient, backgroundAttachment: 'fixed' }}
+                style={{ backgroundColor: bgGradient, backgroundAttachment: 'fixed' }}
                 className="min-h-screen transition-all duration-1000 ease-in-out"
             >
                 {children}
