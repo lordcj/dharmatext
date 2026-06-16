@@ -26,7 +26,7 @@ export default async function CategoryPage(props: CategoryPageProps) {
 
     // If no items found and it's not a known category, 404
     // For now, we allow empty categories but ideally check against valid categories
-    const validCategories = ['bhajans', 'kathas', 'aartis', 'scriptures'];
+    const validCategories = ['kathas', 'aartis', 'scriptures'];
     if (!validCategories.includes(params.category)) {
         notFound();
     }

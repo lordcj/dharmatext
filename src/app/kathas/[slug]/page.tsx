@@ -7,11 +7,13 @@ import { ChevronRight, Home, BookOpen } from 'lucide-react';
 import { kathas } from '@/data/kathas';
 import BackgroundManager from '@/components/reading/BackgroundManager';
 import NativeAd from '@/components/ads/NativeAd';
+import ReadingSettings, { FontSize } from '@/components/reading/ReadingSettings';
 
 export default function KathaReadingPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
     const [language, setLanguage] = useState<'en' | 'hi'>('hi');
     const [isScrolled, setIsScrolled] = useState(false);
+    const [fontSize, setFontSize] = useState<FontSize>('base');
 
     // Track scroll to match navbar behavior
     useEffect(() => {
@@ -46,13 +48,23 @@ export default function KathaReadingPage({ params }: { params: Promise<{ slug: s
 
     const gradientClass = getGradient(katha.deity);
 
+    const getFontSizeClass = () => {
+        switch (fontSize) {
+            case 'sm': return 'text-base md:text-lg';
+            case 'lg': return 'text-xl md:text-2xl';
+            case 'xl': return 'text-2xl md:text-3xl';
+            case 'base':
+            default: return 'text-lg md:text-xl';
+        }
+    };
+
     return (
         <main className="min-h-screen relative font-sans text-starlight-50 pb-32 bg-slate-950">
             <BackgroundManager />
 
             {/* Breadcrumb Header - dynamic position based on navbar height */}
             <header className={`fixed w-full z-40 bg-slate-950/95 backdrop-blur-md border-b border-white/5 h-12 flex items-center px-4 md:px-8 transition-all duration-500 ${isScrolled ? 'top-[72px]' : 'top-[88px]'}`}>
-                <nav className="flex items-center gap-3 text-sm text-starlight-400 font-medium tracking-wide flex-1">
+                <nav className="flex items-center gap-3 text-sm text-starlight-400 font-medium tracking-wide flex-1 overflow-hidden">
                     <Link href="/" className="hover:text-amber-400 transition-colors flex items-center gap-1 group">
                         <Home size={14} className="group-hover:scale-110 transition-transform" />
                         <span className="hidden md:inline">Home</span>
@@ -71,20 +83,28 @@ export default function KathaReadingPage({ params }: { params: Promise<{ slug: s
                     </span>
                 </nav>
 
-                {/* Language Toggle */}
-                <div className="flex bg-amber-900/30 rounded-full p-1 border border-amber-500/30 backdrop-blur-md">
-                    <button
-                        onClick={() => setLanguage('en')}
-                        className={`px-4 py-1.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${language === 'en' ? 'bg-amber-500 text-white shadow-lg' : 'text-amber-200 hover:text-white'}`}
-                    >
-                        EN
-                    </button>
-                    <button
-                        onClick={() => setLanguage('hi')}
-                        className={`px-4 py-1.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${language === 'hi' ? 'bg-amber-500 text-white shadow-lg' : 'text-amber-200 hover:text-white'}`}
-                    >
-                        हिंदी
-                    </button>
+                <div className="flex items-center gap-4">
+                    {/* Settings */}
+                    <ReadingSettings
+                        currentFontSize={fontSize}
+                        onFontSizeChange={setFontSize}
+                    />
+
+                    {/* Language Toggle */}
+                    <div className="flex bg-amber-900/30 rounded-full p-1 border border-amber-500/30 backdrop-blur-md">
+                        <button
+                            onClick={() => setLanguage('en')}
+                            className={`px-4 py-1.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${language === 'en' ? 'bg-amber-500 text-white shadow-lg' : 'text-amber-200 hover:text-white'}`}
+                        >
+                            EN
+                        </button>
+                        <button
+                            onClick={() => setLanguage('hi')}
+                            className={`px-4 py-1.5 rounded-full text-sm font-bold tracking-wide transition-all duration-300 ${language === 'hi' ? 'bg-amber-500 text-white shadow-lg' : 'text-amber-200 hover:text-white'}`}
+                        >
+                            हिंदी
+                        </button>
+                    </div>
                 </div>
             </header>
 
@@ -143,13 +163,13 @@ export default function KathaReadingPage({ params }: { params: Promise<{ slug: s
                                 <span className={`h-px flex-1 bg-gradient-to-l from-transparent to-amber-500/50`}></span>
                             </div>
 
-                            <div className="prose prose-lg prose-invert max-w-none">
+                            <article className="prose prose-lg prose-invert max-w-none">
                                 {(language === 'hi' ? (chapter.contentHindi || chapter.content) : chapter.content).map((paragraph, pIndex) => (
-                                    <p key={pIndex} className={`leading-relaxed md:leading-loose text-lg md:text-xl mb-6 ${language === 'hi' ? 'font-[family-name:var(--font-sanskrit)] text-starlight-100/95' : 'font-serif text-starlight-100/90'}`}>
+                                    <p key={pIndex} className={`leading-relaxed md:leading-loose mb-6 ${getFontSizeClass()} ${language === 'hi' ? 'font-[family-name:var(--font-sanskrit)] text-starlight-100/95' : 'font-serif text-starlight-100/90'}`}>
                                         {paragraph}
                                     </p>
                                 ))}
-                            </div>
+                            </article>
                         </div>
                     ))}
 

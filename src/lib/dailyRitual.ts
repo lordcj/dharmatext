@@ -1,11 +1,11 @@
 export const DAILY_MAPPINGS = [
-    { day: 0, dayName: 'Sunday', deity: 'Surya Dev', slug: 'aditya-hridaya-stotra' },
-    { day: 1, dayName: 'Monday', deity: 'Lord Shiva', slug: 'shiv-chalisa' },
-    { day: 2, dayName: 'Tuesday', deity: 'Hanuman Ji', slug: 'hanuman-chalisa' },
-    { day: 3, dayName: 'Wednesday', deity: 'Lord Ganesha', slug: 'ganesh-chalisa' },
-    { day: 4, dayName: 'Thursday', deity: 'Lord Vishnu/Sai Baba', slug: 'vishnu-sahasranama' },
-    { day: 5, dayName: 'Friday', deity: 'Goddess Lakshmi', slug: 'lakshmi-aarti' },
-    { day: 6, dayName: 'Saturday', deity: 'Shani Dev', slug: 'shani-chalisa' },
+    { day: 0, dayName: 'Sunday', deity: 'Surya Dev', slug: 'jai-kashyap-nandan', title: 'Jai Kashyap Nandan' },
+    { day: 1, dayName: 'Monday', deity: 'Lord Shiva', slug: 'om-jai-shiv-omkara', title: 'Om Jai Shiv Omkara' },
+    { day: 2, dayName: 'Tuesday', deity: 'Hanuman Ji', slug: 'hanuman-chalisa', title: 'Hanuman Chalisa' },
+    { day: 3, dayName: 'Wednesday', deity: 'Lord Ganesha', slug: 'jai-ganesh-deva', title: 'Jai Ganesh Deva' },
+    { day: 4, dayName: 'Thursday', deity: 'Lord Vishnu/Sai Baba', slug: 'achyutam-keshavam', title: 'Achyutam Keshavam' },
+    { day: 5, dayName: 'Friday', deity: 'Goddess Lakshmi', slug: 'om-jai-laxmi-mata', title: 'Om Jai Laxmi Mata' },
+    { day: 6, dayName: 'Saturday', deity: 'Shani Dev', slug: 'jai-shani-dev', title: 'Jai Shani Dev' },
 ];
 
 export function getDailyContent() {

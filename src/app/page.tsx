@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Sparkles, BookOpen, Music, Flame } from 'lucide-react';
+import { Sparkles, BookOpen, Flame } from 'lucide-react';
 import { getDailyContent } from '@/lib/dailyRitual';
 import SearchHero from '@/components/ui/SearchHero';
 
@@ -7,13 +7,6 @@ export default function Home() {
   const daily = getDailyContent();
 
   const sections = [
-    {
-      title: 'Bhajans',
-      slug: 'bhajans',
-      desc: 'Divine melodies for the soul',
-      icon: Music,
-      bg: 'bg-rose-50 border-rose-100 hover:border-rose-300'
-    },
     {
       title: 'Kathas',
       slug: 'kathas',
@@ -100,12 +93,12 @@ export default function Home() {
                 Seek Blessings from <span className="text-gold-500">{daily.deity}</span>
               </h2>
               <p className="text-starlight-200 text-lg font-light leading-relaxed">
-                It is auspicious to read the <strong className="font-medium text-white">{daily.slug.replace(/-/g, ' ')}</strong> today.
+                It is auspicious to read the <strong className="font-medium text-white">{daily.title}</strong> today.
               </p>
             </div>
             <div>
               <Link
-                href={`/bhajans/${daily.slug}`}
+                href={`/aartis/${daily.slug}`}
                 className="inline-flex items-center gap-2 bg-gold-500 text-black px-8 py-4 rounded-lg font-medium hover:bg-gold-400 transition-all shadow-md hover:shadow-xl hover:shadow-gold-500/20 hover:-translate-y-0.5"
               >
                 <BookOpen className="w-5 h-5" />
@@ -124,7 +117,7 @@ export default function Home() {
             <div className="h-0.5 w-24 bg-gold-500 mx-auto opacity-60"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {sections.map((section) => (
               <Link
                 key={section.slug}

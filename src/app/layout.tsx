@@ -62,7 +62,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "DharmaText - Your Spiritual Gateway",
-  description: "A divine collection of Bhajans, Kathas, and Scriptures.",
+  description: "A divine collection of Aartis, Kathas, and Scriptures.",
 };
 
 export default function RootLayout({

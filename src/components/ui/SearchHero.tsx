@@ -77,7 +77,7 @@ export default function SearchHero() {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search Bhajans, Mantras..."
+                    placeholder="Search Aartis, Mantras..."
                     autoComplete="off"
                     className="w-full bg-transparent border-none px-4 py-3 text-lg focus:outline-none placeholder:text-slate-400 text-slate-800 placeholder:font-light"
                     onFocus={() => {
