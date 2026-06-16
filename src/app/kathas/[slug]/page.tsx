@@ -32,6 +32,32 @@ export default function KathaReadingPage({ params }: { params: Promise<{ slug: s
         );
     }
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        name: katha.title,
+        headline: `${katha.title} - ${katha.titleHindi}`,
+        description: katha.description,
+        image: `https://willowy-jelly-0cfbcb.netlify.app${katha.imagePath}`,
+        author: {
+            '@type': 'Organization',
+            name: 'DharmaText',
+            url: 'https://willowy-jelly-0cfbcb.netlify.app'
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'DharmaText',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://willowy-jelly-0cfbcb.netlify.app/icon.png'
+            }
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://willowy-jelly-0cfbcb.netlify.app/kathas/${slug}`
+        }
+    };
+
     // Determine gradient based on Deity (Simple mapping)
     const getGradient = (deity: string) => {
         const d = deity.toLowerCase();
@@ -60,6 +86,10 @@ export default function KathaReadingPage({ params }: { params: Promise<{ slug: s
 
     return (
         <main className="min-h-screen relative font-sans text-starlight-50 pb-32 bg-slate-950">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <BackgroundManager />
 
             {/* Breadcrumb Header - dynamic position based on navbar height */}

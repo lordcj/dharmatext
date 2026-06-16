@@ -61,8 +61,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DharmaText - Your Spiritual Gateway",
-  description: "A divine collection of Aartis, Kathas, and Scriptures.",
+  metadataBase: new URL('https://willowy-jelly-0cfbcb.netlify.app'),
+  title: {
+    default: "DharmaText - Your Spiritual Gateway",
+    template: "%s | DharmaText",
+  },
+  description: "A divine collection of Aartis, Kathas, and Scriptures. Read prayers, mantras, and stories in Hindi, Sanskrit, and English.",
+  openGraph: {
+    title: "DharmaText - Your Spiritual Gateway",
+    description: "A divine collection of Aartis, Kathas, and Scriptures. Read prayers, mantras, and stories in Hindi, Sanskrit, and English.",
+    url: "https://willowy-jelly-0cfbcb.netlify.app",
+    siteName: "DharmaText",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DharmaText - Your Spiritual Gateway",
+    description: "A divine collection of Aartis, Kathas, and Scriptures.",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+  },
 };
 
 export default function RootLayout({
@@ -71,6 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const AD_CLIENT_ID = process.env.NEXT_PUBLIC_GOOGLE_AD_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXX';
+  const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
     <html lang="en">
@@ -82,6 +103,25 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="lazyOnload"
         />
+
+        {/* Google Analytics Script - GA4 */}
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </head>
       <body
         className={`${crimsonPro.variable} ${cormorant.variable} ${inter.variable} ${cinzel.variable} ${tiroDevanagari.variable} ${lora.variable} ${ebGaramond.variable} ${notoSerifDevanagari.variable} antialiased bg-sandstone-50 text-stone-800 font-serif`}

@@ -142,8 +142,38 @@ export default function AartiReadingPage({ params }: { params: Promise<{ slug: s
         );
     }
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        name: aarti.title,
+        headline: `${aarti.title} - ${aarti.titleHindi}`,
+        description: aarti.description,
+        image: `https://willowy-jelly-0cfbcb.netlify.app${aarti.imagePath}`,
+        author: {
+            '@type': 'Organization',
+            name: 'DharmaText',
+            url: 'https://willowy-jelly-0cfbcb.netlify.app'
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'DharmaText',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://willowy-jelly-0cfbcb.netlify.app/icon.png'
+            }
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://willowy-jelly-0cfbcb.netlify.app/aartis/${slug}`
+        }
+    };
+
     return (
         <main className="min-h-screen relative font-sans text-starlight-50 pb-32">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <BackgroundManager />
 
             {/* Breadcrumb Header */}
