@@ -36,7 +36,7 @@ export default function Home() {
       {/* 1. Divine Hero Section */}
       <section className="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden bg-heavenly pt-20 pb-48"> {/* Increased pb-48 for better spacing */}
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-[url('/assets/cubes.png')] opacity-10 mix-blend-multiply"></div>
         <div className="absolute top-1/4 w-[500px] h-[500px] bg-gold-500/20 rounded-full blur-[120px] -z-0"></div>
 
         <div className="relative z-10 px-4 max-w-4xl mx-auto space-y-8 animate-in fade-in zoom-in duration-1000">

@@ -149,6 +149,9 @@ export default function KathaReadingPage({ params }: { params: Promise<{ slug: s
                             src={katha.imagePath}
                             alt={katha.title}
                             fill
+                            sizes="224px"
+                            priority
+                            quality={80}
                             className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
                         {/* Divine Glow */}

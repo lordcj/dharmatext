@@ -1,11 +1,7 @@
-'use client';
-
-import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { kathas } from '@/data/kathas';
-
-// Force rebuild
 
 
 export default function KathasPage() {
@@ -31,10 +27,13 @@ export default function KathasPage() {
                         >
                             {/* Full Height Card Image */}
                             <div className="absolute inset-0 w-full h-full">
-                                <img
+                                <Image
                                     src={katha.imagePath}
                                     alt={katha.title}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    quality={75}
+                                    className="object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                                 />
                                 {/* Gradient Overlay for text readability */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />

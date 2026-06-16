@@ -208,6 +208,9 @@ export default function AartiReadingPage({ params }: { params: Promise<{ slug: s
                                 src={aarti.imagePath}
                                 alt={aarti.title}
                                 fill
+                                sizes="256px"
+                                priority
+                                quality={80}
                                 className="object-cover hover:scale-110 transition-transform duration-700"
                             />
                         </div>

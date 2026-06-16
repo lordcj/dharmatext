@@ -20,7 +20,7 @@ export default function BackgroundManager() {
 
                     {/* 2. Vibrant Image Layer (Side Frame) */}
                     <div
-                        className="absolute inset-0 bg-[url('/assets/peacock_side_frame.png')] bg-cover bg-center opacity-90"
+                        className="absolute inset-0 bg-[url('/assets/peacock_side_frame.webp')] bg-cover bg-center opacity-90"
                         style={{ filter: 'contrast(1.1) brightness(1.0)' }}
                     />
 
@@ -58,7 +58,7 @@ export default function BackgroundManager() {
 
                     {/* 2. Side Image Layer (Hanuman) */}
                     <div
-                        className="absolute inset-0 bg-[url('/images/hanuman-chalisa.png')] bg-[length:auto_90%] bg-no-repeat bg-right-bottom md:bg-left-bottom opacity-15 grayscale hover:grayscale-0 transition-all duration-1000"
+                        className="absolute inset-0 bg-[url('/images/hanuman-chalisa.webp')] bg-[length:auto_90%] bg-no-repeat bg-right-bottom md:bg-left-bottom opacity-15 grayscale hover:grayscale-0 transition-all duration-1000"
                         style={{ filter: 'contrast(1.2)' }}
                     />
 
@@ -75,7 +75,7 @@ export default function BackgroundManager() {
 
                     {/* 2. Side Image Layer (Trimurti) */}
                     <div
-                        className="absolute inset-0 bg-[url('/images/om-jai-jagdish.png')] bg-[length:auto_90%] bg-no-repeat bg-right-bottom md:bg-left-bottom opacity-15 grayscale hover:grayscale-0 transition-all duration-1000"
+                        className="absolute inset-0 bg-[url('/images/om-jai-jagdish.webp')] bg-[length:auto_90%] bg-no-repeat bg-right-bottom md:bg-left-bottom opacity-15 grayscale hover:grayscale-0 transition-all duration-1000"
                         style={{ filter: 'contrast(1.2)' }}
                     />
 
