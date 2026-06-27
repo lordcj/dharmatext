@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, BookOpen } from 'lucide-react';
+import { buildListingMetadata } from '@/lib/metadata';
+
+export const metadata = buildListingMetadata('scriptures', 3);
 
 const scriptures = [
     {

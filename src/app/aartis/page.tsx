@@ -2,6 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Music } from 'lucide-react';
 import { aartis } from '@/data/aartis';
+import { buildListingMetadata } from '@/lib/metadata';
+import { generateCollectionPageSchema } from '@/lib/schema';
+import SchemaScript from '@/components/seo/SchemaScript';
+
+export const metadata = buildListingMetadata('aartis', aartis.length);
 
 export default function AartisPage() {
     return (

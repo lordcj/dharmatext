@@ -4,6 +4,9 @@ import { Crimson_Pro, Cormorant_Garamond, Inter, Cinzel, Tiro_Devanagari_Sanskri
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import { ThemeProvider } from "@/context/ThemeContext";
+import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, DEFAULT_OG_IMAGE, getCanonicalUrl } from "@/lib/seo.config";
+import { generateWebSiteSchema } from "@/lib/schema";
+import SchemaScript from "@/components/seo/SchemaScript";
 
 // Body / Scripture Text
 const crimsonPro = Crimson_Pro({
@@ -61,33 +64,29 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://dharmatext.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "DharmaText - Your Spiritual Gateway",
-    template: "%s | DharmaText",
+    default: `${SITE_NAME} — Your Spiritual Gateway | Hindu Prayers, Aartis & Scriptures`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description: "A divine collection of Aartis, Kathas, and Scriptures. Read prayers, mantras, and stories in Hindi, Sanskrit, and English.",
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: getCanonicalUrl('/'),
+  },
   openGraph: {
-    title: "DharmaText - Your Spiritual Gateway",
-    description: "A divine collection of Aartis, Kathas, and Scriptures. Read prayers, mantras, and stories in Hindi, Sanskrit, and English.",
-    url: "https://willowy-jelly-0cfbcb.netlify.app",
-    siteName: "DharmaText",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "/images/hanuman-chalisa.webp",
-        width: 1200,
-        height: 630,
-        alt: "DharmaText - Hanuman Ji",
-      },
-    ],
+    title: `${SITE_NAME} — Your Spiritual Gateway`,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: 'en_IN',
+    type: 'website',
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "DharmaText - Your Spiritual Gateway",
-    description: "A divine collection of Aartis, Kathas, and Scriptures.",
-    images: ["/images/hanuman-chalisa.webp"],
+    card: 'summary_large_image',
+    title: `${SITE_NAME} — Your Spiritual Gateway`,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
   },
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
@@ -135,6 +134,7 @@ export default function RootLayout({
         className={`${crimsonPro.variable} ${cormorant.variable} ${inter.variable} ${cinzel.variable} ${tiroDevanagari.variable} ${lora.variable} ${ebGaramond.variable} ${notoSerifDevanagari.variable} antialiased bg-sandstone-50 text-stone-800 font-serif`}
       >
         <ThemeProvider>
+          <SchemaScript schemas={[generateWebSiteSchema()]} />
           <Navbar />
           {children}
         </ThemeProvider>

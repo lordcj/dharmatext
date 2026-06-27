@@ -2,7 +2,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { kathas } from '@/data/kathas';
+import { buildListingMetadata } from '@/lib/metadata';
 
+export const metadata = buildListingMetadata('kathas', kathas.length);
 
 export default function KathasPage() {
     return (

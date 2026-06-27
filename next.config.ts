@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
   },
+  // Optimizations for 100k+ pages
+  experimental: {
+    // Prevent OOM errors during massive builds
+    staticGenerationRetryCount: 3,
+    staticGenerationMaxConcurrency: 8,
+  },
 };
 
 export default nextConfig;
