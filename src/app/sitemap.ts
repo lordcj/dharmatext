@@ -4,7 +4,7 @@ import { kathas } from '@/data/kathas';
 import { getChaptersForText } from '@/data/chapters';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = 'https://willowy-jelly-0cfbcb.netlify.app';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://dharmatext.com';
 
     // 1. Static Pages
     const staticPages = [

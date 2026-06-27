@@ -61,7 +61,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://willowy-jelly-0cfbcb.netlify.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://dharmatext.com'),
   title: {
     default: "DharmaText - Your Spiritual Gateway",
     template: "%s | DharmaText",

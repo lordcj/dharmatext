@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { Sparkles, BookOpen, Flame } from 'lucide-react';
-import { getDailyContent } from '@/lib/dailyRitual';
+import DailyRitualCard from '@/components/ui/DailyRitualCard';
 import SearchHero from '@/components/ui/SearchHero';
 
 export default function Home() {
-  const daily = getDailyContent();
 
   const sections = [
     {
@@ -31,15 +30,15 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
 
       {/* 1. Divine Hero Section */}
-      <section className="relative min-h-[85vh] flex flex-col items-center justify-center text-center overflow-hidden bg-heavenly pt-20 pb-48"> {/* Increased pb-48 for better spacing */}
+      <section className="relative min-h-[85vh] flex flex-col items-center justify-center text-center bg-heavenly pt-20 pb-48"> {/* Increased pb-48 for better spacing */}
         {/* Background Effects */}
         <div className="absolute inset-0 bg-[url('/assets/cubes.png')] opacity-10 mix-blend-multiply"></div>
         <div className="absolute top-1/4 w-[500px] h-[500px] bg-gold-500/20 rounded-full blur-[120px] -z-0"></div>
 
-        <div className="relative z-10 px-4 max-w-4xl mx-auto space-y-8 animate-in fade-in zoom-in duration-1000">
+        <div className="relative z-30 px-4 max-w-4xl mx-auto space-y-8 animate-in fade-in zoom-in duration-1000">
 
           {/* Sacred Symbol Container */}
           <div className="relative inline-block animate-float-breathe">
@@ -79,34 +78,7 @@ export default function Home() {
 
       {/* 2. Today's Ritual (Floating Card) */}
       <section className="-mt-12 relative z-20 max-w-5xl mx-auto px-4 pb-16">
-        <div className="glass-card rounded-xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 text-center md:text-left relative overflow-hidden group">
-          {/* Sacred Background Effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gold-500/10 via-transparent to-purple-900/20 opacity-100 transition-opacity duration-700"></div>
-          <div className="absolute -right-20 -top-20 w-64 h-64 bg-gold-500/20 rounded-full blur-[80px]"></div>
-
-          <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 w-full">
-            <div className="flex-1 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-gold-400 text-[10px] font-bold uppercase tracking-widest border border-white/10">
-                <Sparkles size={12} /> Today • {daily.dayName}
-              </div>
-              <h2 className="text-3xl font-serif font-medium text-starlight-50">
-                Seek Blessings from <span className="text-gold-500">{daily.deity}</span>
-              </h2>
-              <p className="text-starlight-200 text-lg font-light leading-relaxed">
-                It is auspicious to read the <strong className="font-medium text-white">{daily.title}</strong> today.
-              </p>
-            </div>
-            <div>
-              <Link
-                href={`/aartis/${daily.slug}`}
-                className="inline-flex items-center gap-2 bg-gold-500 text-black px-8 py-4 rounded-lg font-medium hover:bg-gold-400 transition-all shadow-md hover:shadow-xl hover:shadow-gold-500/20 hover:-translate-y-0.5"
-              >
-                <BookOpen className="w-5 h-5" />
-                Start Reading
-              </Link>
-            </div>
-          </div>
-        </div>
+        <DailyRitualCard />
       </section>
 
       {/* 3. Sections Grid */}

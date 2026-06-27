@@ -20,7 +20,7 @@ export default function SearchHero() {
                 setIsLoading(true);
                 // We default to searching everything for the dropdown for best UX
                 const hits = await searchContent(query, { fields: ['title', 'deity', 'meaning'] });
-                setResults(hits.slice(0, 6)); // Limit to top 6 results
+                setResults(hits.slice(0, 15)); // Limit to top 15 results
                 setIsOpen(true);
                 setIsLoading(false);
             } else {
@@ -93,7 +93,7 @@ export default function SearchHero() {
             {/* Instant Results Dropdown */}
             {isOpen && results.length > 0 && (
                 <div className="absolute top-full left-0 right-0 mt-3 bg-white/95 backdrop-blur-3xl rounded-2xl shadow-xl border border-white/40 overflow-hidden animate-in fade-in slide-in-from-top-4 duration-200">
-                    <div className="max-h-[60vh] overflow-y-auto py-2">
+                    <div className="max-h-[320px] overflow-y-auto py-2">
                         {results.map((result, index) => (
                             <div
                                 key={`${result.type}-${result.id}`}
