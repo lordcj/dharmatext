@@ -194,3 +194,29 @@ export function generateKathaFAQs(
     },
   ];
 }
+
+// ─── HowTo Schema (for Google rich results) ──────────────────────
+
+export interface HowToStep {
+  step: string;
+  description: string;
+}
+
+export function generateHowToSchema(meta: {
+  name: string;
+  description: string;
+  steps: HowToStep[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: meta.name,
+    description: meta.description,
+    step: meta.steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.step,
+      text: s.description,
+    })),
+  };
+}

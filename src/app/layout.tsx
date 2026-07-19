@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Crimson_Pro, Cormorant_Garamond, Inter, Cinzel, Tiro_Devanagari_Sanskrit, Lora, EB_Garamond, Noto_Serif_Devanagari } from "next/font/google"; // Divine Fonts
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL, DEFAULT_OG_IMAGE, getCanonicalUrl } from "@/lib/seo.config";
 import { generateWebSiteSchema } from "@/lib/schema";
@@ -104,11 +105,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* AdSense Script - Standard script to avoid data-nscript error */}
-        <script
+        {/* AdSense Script — lazyOnload to avoid blocking LCP */}
+        <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${AD_CLIENT_ID}`}
           crossOrigin="anonymous"
+          strategy="lazyOnload"
         />
 
         {/* Google Analytics Script - GA4 */}
@@ -137,6 +139,7 @@ export default function RootLayout({
           <SchemaScript schemas={[generateWebSiteSchema()]} />
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

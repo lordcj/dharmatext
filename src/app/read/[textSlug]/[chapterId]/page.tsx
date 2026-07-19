@@ -105,6 +105,22 @@ export default async function ChapterPage({ params }: PageProps) {
   return (
     <>
       <SchemaScript schemas={[articleSchema, breadcrumbSchema]} />
+      <article className="sr-only" itemScope itemType="https://schema.org/Article">
+        <h1 itemProp="headline">{textTitle} - Chapter {chapterId}: {displayTitle}</h1>
+        {currentChapter?.desc && <p itemProp="description">{currentChapter.desc}</p>}
+        <div itemProp="text">
+          {verses.map((verse) => (
+            <div key={verse.id} className="mb-4">
+              <h2 className="text-xl">Verse {verse.id}</h2>
+              {verse.sanskrit && <p lang="sa">{verse.sanskrit}</p>}
+              {verse.transliteration && <p>{verse.transliteration}</p>}
+              {verse.meaningHindi && <p lang="hi">{verse.meaningHindi}</p>}
+              {verse.meaningEnglish && <p>{verse.meaningEnglish}</p>}
+            </div>
+          ))}
+        </div>
+      </article>
+
       <ChapterReadingClient
         textSlug={textSlug}
         chapterId={chapterId}

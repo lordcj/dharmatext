@@ -65,18 +65,6 @@ export function buildAartiMetadata(aarti: AartiMetaInput): Metadata {
       description: pageDescription,
       images: [imageUrl],
     },
-    keywords: [
-      aarti.title,
-      aarti.titleHindi,
-      `${aarti.title} lyrics`,
-      `${aarti.title} meaning`,
-      `${aarti.title} in Hindi`,
-      `${aarti.title} in English`,
-      `${aarti.deity} aarti`,
-      'aarti',
-      'prayer',
-      'Hindu devotional',
-    ],
   };
 }
 
@@ -126,16 +114,6 @@ export function buildKathaMetadata(katha: KathaMetaInput): Metadata {
       description: pageDescription,
       images: [imageUrl],
     },
-    keywords: [
-      katha.title,
-      katha.titleHindi,
-      `${katha.title} in Hindi`,
-      `${katha.title} in English`,
-      `${katha.deity} katha`,
-      'vrat katha',
-      'Hindu story',
-      'fasting story',
-    ],
   };
 }
 
@@ -171,14 +149,6 @@ export function buildScriptureMetadata(scripture: ScriptureMetaInput): Metadata 
       title: pageTitle,
       description: pageDescription,
     },
-    keywords: [
-      scripture.title,
-      `${scripture.title} chapters`,
-      `${scripture.title} online`,
-      `${scripture.title} in Hindi`,
-      'Hindu scripture',
-      'Vedic text',
-    ],
   };
 }
 
@@ -218,13 +188,6 @@ export function buildChapterMetadata(chapter: ChapterMetaInput): Metadata {
       title: pageTitle,
       description: pageDescription,
     },
-    keywords: [
-      chapter.chapterTitle,
-      chapter.chapterTranslation,
-      `${chapter.textTitle} chapter ${chapter.chapterId}`,
-      `${chapter.chapterTitle} meaning`,
-      chapter.textTitle,
-    ],
   };
 }
 

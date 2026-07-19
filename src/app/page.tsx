@@ -1,9 +1,36 @@
 import Link from 'next/link';
-import { Sparkles, BookOpen, Flame } from 'lucide-react';
+import Image from 'next/image';
+import { Sparkles, BookOpen, Flame, ArrowRight } from 'lucide-react';
 import DailyRitualCard from '@/components/ui/DailyRitualCard';
 import SearchHero from '@/components/ui/SearchHero';
+import { aartis } from '@/data/aartis';
+import { kathas } from '@/data/kathas';
+
+// Featured content for SEO — Google needs crawlable text and links
+const POPULAR_AARTIS = [
+  'hanuman-chalisa',
+  'om-jai-jagdish',
+  'jai-ganesh-deva',
+  'om-jai-shiv-omkara',
+  'aarti-kunj-bihari-ki',
+  'jai-ambe-gauri',
+];
+
+const POPULAR_KATHAS = [
+  'somvar-vrat-katha',
+  'solah-somvar-vrat-katha',
+  'satyanarayan-vrat-katha',
+  'santoshi-mata-vrat-katha',
+];
 
 export default function Home() {
+  const featuredAartis = POPULAR_AARTIS
+    .map(slug => aartis.find(a => a.slug === slug))
+    .filter(Boolean);
+
+  const featuredKathas = POPULAR_KATHAS
+    .map(slug => kathas.find(k => k.slug === slug))
+    .filter(Boolean);
 
   const sections = [
     {
@@ -109,6 +136,126 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 4. Popular Aartis — SEO-critical server-rendered content */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-10">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-serif font-medium text-starlight-50">Popular Aartis</h2>
+              <p className="text-starlight-400 text-sm">Most recited prayers and devotional hymns</p>
+            </div>
+            <Link href="/aartis" className="hidden md:flex items-center gap-2 text-gold-400 hover:text-gold-500 transition-colors text-sm font-medium">
+              View All Aartis <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {featuredAartis.map((aarti) => aarti && (
+              <Link
+                key={aarti.slug}
+                href={`/aartis/${aarti.slug}`}
+                className="group relative rounded-xl overflow-hidden aspect-[3/4] bg-stone-900"
+              >
+                <Image
+                  src={aarti.imagePath}
+                  alt={`${aarti.title} - ${aarti.titleHindi}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 16vw"
+                  quality={60}
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <h3 className="text-white text-sm font-serif font-semibold leading-tight group-hover:text-gold-400 transition-colors">
+                    {aarti.title}
+                  </h3>
+                  <p lang="hi" className="text-orange-200/70 text-xs font-[family-name:var(--font-sanskrit)] mt-0.5">
+                    {aarti.titleHindi}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <Link href="/aartis" className="md:hidden flex items-center justify-center gap-2 mt-6 text-gold-400 text-sm font-medium">
+            View All Aartis <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 5. Popular Kathas */}
+      <section className="py-16 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-10">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-serif font-medium text-starlight-50">Vrat Kathas</h2>
+              <p className="text-starlight-400 text-sm">Sacred fasting stories for spiritual merit</p>
+            </div>
+            <Link href="/kathas" className="hidden md:flex items-center gap-2 text-amber-400 hover:text-amber-500 transition-colors text-sm font-medium">
+              View All Kathas <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {featuredKathas.map((katha) => katha && (
+              <Link
+                key={katha.slug}
+                href={`/kathas/${katha.slug}`}
+                className="group p-5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-amber-500/20 hover:bg-white/[0.06] transition-all"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="relative w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 ring-1 ring-white/10">
+                    <Image
+                      src={katha.imagePath}
+                      alt={katha.title}
+                      fill
+                      sizes="56px"
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-serif font-semibold text-starlight-50 group-hover:text-amber-400 transition-colors text-sm">
+                      {katha.title}
+                    </h3>
+                    <p lang="hi" className="text-starlight-400 text-xs font-[family-name:var(--font-sanskrit)] mt-0.5">
+                      {katha.titleHindi}
+                    </p>
+                    <p className="text-starlight-400 text-xs mt-1 line-clamp-1">
+                      {katha.deity} • {katha.readTime}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <Link href="/kathas" className="md:hidden flex items-center justify-center gap-2 mt-6 text-amber-400 text-sm font-medium">
+            View All Kathas <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
+
+      {/* 6. About DharmaText — E-E-A-T Content for SEO */}
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <h2 className="text-2xl font-serif font-medium text-starlight-50">
+            What is DharmaText?
+          </h2>
+          <div className="h-0.5 w-16 bg-gold-500 mx-auto opacity-60"></div>
+          <p className="text-starlight-300 leading-relaxed font-serif text-base">
+            DharmaText is a free, open-access digital sanctuary dedicated to preserving and sharing the timeless wisdom of
+            Sanatana Dharma. Our mission is to make Hindu scriptures, prayers, and devotional content accessible to everyone —
+            in Hindi, Sanskrit, and English with verse-by-verse meanings. Whether you are seeking the complete Hanuman Chalisa,
+            understanding the Bhagavad Gita, or looking for Vrat Kathas to read during fasting, DharmaText provides authentic,
+            beautifully presented content for your spiritual journey.
+          </p>
+          <p lang="hi" className="text-starlight-400 leading-relaxed font-[family-name:var(--font-sanskrit)] text-sm">
+            धर्मटेक्स्ट सनातन धर्म की शाश्वत ज्ञान परंपरा को संरक्षित और साझा करने के लिए समर्पित एक निःशुल्क डिजिटल पुस्तकालय है।
+            हमारा उद्देश्य हिंदू ग्रंथों, प्रार्थनाओं और भक्ति सामग्री को हिंदी, संस्कृत और अंग्रेजी में सभी के लिए सुलभ बनाना है।
+          </p>
         </div>
       </section>
 
