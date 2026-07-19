@@ -64,6 +64,9 @@
 
 /* Base Body - Deep Cosmic Gradient */
 body {
+  --font-sanskrit: var(--font-noto-devanagari);
+  --font-lora: var(--font-serif);
+  --font-garamond: var(--font-serif);
   background: var(--color-cosmic-950);
   background-attachment: fixed;
   /* Parallax feel */
@@ -84,14 +87,34 @@ body {
   text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
 }
 
+/* Responsive Glass Panel - Avoid backdrop-filter on mobile */
 .glass-panel {
-  background: rgba(2, 6, 23, 0.4);
-  /* cosmic-950/40 */
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+  background: rgba(15, 23, 42, 0.9); /* High performance solid slate */
   border: 1px solid rgba(255, 255, 255, 0.05);
-  /* Extremely subtle border */
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .glass-panel {
+    background: rgba(2, 6, 23, 0.4);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
+}
+
+/* Responsive Glass Card - Avoid backdrop-filter on mobile */
+.glass-card {
+  background: rgba(15, 23, 42, 0.9); /* High performance solid slate */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .glass-card {
+    background: rgba(2, 6, 23, 0.4);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
 }
 
 .text-liquid-gold {

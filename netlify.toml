@@ -47,3 +47,19 @@
   for = "/feed.xml"
   [headers.values]
     Cache-Control = "public, max-age=3600, s-maxage=3600"
+
+# Caching for site branding resources (PWA signals)
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/icon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"

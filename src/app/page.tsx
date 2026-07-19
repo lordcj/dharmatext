@@ -62,21 +62,21 @@ export default function Home() {
       {/* 1. Divine Hero Section */}
       <section className="relative min-h-[85vh] flex flex-col items-center justify-center text-center bg-heavenly pt-20 pb-48"> {/* Increased pb-48 for better spacing */}
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-[url('/assets/cubes.png')] opacity-10 mix-blend-multiply"></div>
-        <div className="absolute top-1/4 w-[500px] h-[500px] bg-gold-500/20 rounded-full blur-[120px] -z-0"></div>
+        <div className="absolute inset-0 bg-[url('/assets/cubes.png')] opacity-10 mix-blend-multiply hidden md:block"></div>
+        <div className="absolute top-1/4 w-[500px] h-[500px] bg-gold-500/20 rounded-full blur-[120px] -z-0 hidden md:block"></div>
 
-        <div className="relative z-30 px-4 max-w-4xl mx-auto space-y-8 animate-in fade-in zoom-in duration-1000">
+        <div className="relative z-30 px-4 max-w-4xl mx-auto space-y-8 md:animate-in md:fade-in md:zoom-in md:duration-1000">
 
           {/* Sacred Symbol Container */}
-          <div className="relative inline-block animate-float-breathe">
+          <div className="relative inline-block md:animate-float-breathe">
             {/* God Rays: Repeating Conic Gradient */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full god-rays animate-spin-slow -z-10 bg-blend-soft-light"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full god-rays md:animate-spin-slow -z-10 bg-blend-soft-light hidden md:block"></div>
 
             {/* Radiant Glow (Behind Rays) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gold-500/10 blur-[90px] rounded-full -z-10 animate-pulse"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gold-500/10 blur-[90px] rounded-full -z-10 md:animate-pulse"></div>
 
             {/* The Living Idol: Liquid Gold Text */}
-            <div className="text-7xl md:text-9xl mb-2 font-serif select-none drop-shadow-2xl text-liquid-gold animate-shine">
+            <div className="text-7xl md:text-9xl mb-2 font-serif select-none drop-shadow-2xl text-liquid-gold md:animate-shine">
               ॐ
             </div>
           </div>

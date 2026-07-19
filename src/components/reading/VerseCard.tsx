@@ -16,7 +16,7 @@ export default function VerseCard({ verse }: VerseCardProps) {
 
     return (
         <>
-            <div id={`verse-${verse.verseNumber}`} className="bg-[#020617]/40 backdrop-blur-[40px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/5 rounded-xl p-6 md:p-8 mb-8 relative group transition-all duration-500">
+            <div id={`verse-${verse.verseNumber}`} className="glass-card shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/5 rounded-xl p-6 md:p-8 mb-8 relative group transition-all duration-500">
 
 
 

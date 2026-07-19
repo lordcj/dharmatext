@@ -93,7 +93,7 @@ export default function ChapterIndexClient({ textSlug, displayTitle, chapters }:
                             <Link
                                 key={chapter.id}
                                 href={`/read/${textSlug}/${chapter.id}`}
-                                className="group flex items-center justify-between p-6 rounded-xl bg-[#020617]/40 backdrop-blur-[40px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-300 border border-white/5 hover:border-gold-500/30"
+                                className="group flex items-center justify-between p-6 rounded-xl glass-card shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] transition-all duration-300 border border-white/5 hover:border-gold-500/30"
                             >
                                 <div className="flex items-center gap-6">
                                     <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-starlight-400 group-hover:text-gold-400 group-hover:scale-110 transition-all">
@@ -118,7 +118,7 @@ export default function ChapterIndexClient({ textSlug, displayTitle, chapters }:
                             </Link>
                         ))
                     ) : (
-                        <div className="text-center p-8 bg-[#020617]/40 backdrop-blur-[40px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/5 rounded-xl text-starlight-400">
+                        <div className="text-center p-8 glass-card shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/5 rounded-xl text-starlight-400">
                             <p>Chapters coming soon for {displayTitle}...</p>
                         </div>
                     )}

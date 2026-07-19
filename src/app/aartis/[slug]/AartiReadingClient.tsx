@@ -17,7 +17,7 @@ function AartiVerseCard({ verse }: { verse: AartiVerse }) {
     const isDoha = verse.type === 'doha';
 
     return (
-        <div className={`bg-[#020617]/40 backdrop-blur-[40px] shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/5 rounded-xl p-6 md:p-8 transition-all duration-500 overflow-hidden relative group z-10 ${isDoha ? 'border-l-4 border-l-amber-500/50' : ''}`}>
+        <div className={`glass-card shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border border-white/5 rounded-xl p-6 md:p-8 transition-all duration-500 overflow-hidden relative group z-10 ${isDoha ? 'border-l-4 border-l-amber-500/50' : ''}`}>
 
             {/* Top Bar: Verse Info & Controls */}
             <div className="flex items-center justify-between mb-6 relative z-10">

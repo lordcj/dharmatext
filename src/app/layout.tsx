@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { Crimson_Pro, Cormorant_Garamond, Inter, Cinzel, Tiro_Devanagari_Sanskrit, Lora, EB_Garamond, Noto_Serif_Devanagari } from "next/font/google"; // Divine Fonts
+import { Crimson_Pro, Cormorant_Garamond, Inter, Cinzel, Noto_Serif_Devanagari } from "next/font/google"; // Divine Fonts (Optimized)
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -12,56 +12,40 @@ import SchemaScript from "@/components/seo/SchemaScript";
 // Body / Scripture Text
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-serif",
+  display: "swap",
 });
 
 // Display / Headings (Ancient Inscription feel)
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   variable: "--font-display",
+  display: "swap",
 });
 
 const cinzel = Cinzel({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["500", "700"],
   variable: "--font-cinzel",
-});
-
-// Authentic Devanagari font for Sanskrit/Hindi scripture text
-const tiroDevanagari = Tiro_Devanagari_Sanskrit({
-  subsets: ["devanagari", "latin"],
-  weight: ["400"],
-  variable: "--font-sanskrit",
-});
-
-// Elegant serif for English translations
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-lora",
-});
-
-// Classic Garamond for scripture feel
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-garamond",
+  display: "swap",
+  preload: false,
 });
 
 // Premium Devanagari font with beautiful ligatures for Sanskrit/Hindi scripture
 const notoSerifDevanagari = Noto_Serif_Devanagari({
   subsets: ["devanagari", "latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
   variable: "--font-noto-devanagari",
+  display: "swap",
+  preload: false,
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -119,9 +103,9 @@ export default function RootLayout({
             <Script
               async
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="google-analytics" strategy="afterInteractive">
+            <Script id="google-analytics" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
@@ -133,7 +117,7 @@ export default function RootLayout({
         )}
       </head>
       <body
-        className={`${crimsonPro.variable} ${cormorant.variable} ${inter.variable} ${cinzel.variable} ${tiroDevanagari.variable} ${lora.variable} ${ebGaramond.variable} ${notoSerifDevanagari.variable} antialiased bg-sandstone-50 text-stone-800 font-serif`}
+        className={`${crimsonPro.variable} ${cormorant.variable} ${inter.variable} ${cinzel.variable} ${notoSerifDevanagari.variable} antialiased bg-sandstone-50 text-stone-800 font-serif`}
       >
         <ThemeProvider>
           <SchemaScript schemas={[generateWebSiteSchema()]} />
