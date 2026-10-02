@@ -1,0 +1,37 @@
+name: SEO Pipeline
+
+on:
+  push:
+    branches: [main]
+  # Also run weekly to keep pings fresh
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 6 AM UTC
+
+jobs:
+  seo-audit:
+    name: SEO Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run SEO Audit (Quick)
+        run: node scripts/seo-audit.mjs
+        continue-on-error: true  # Don't block deploy on warnings
+
+      - name: Ping Search Engines
+        run: node scripts/seo-submit.mjs
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: Ping Google Indexing API
+        if: env.GOOGLE_SERVICE_ACCOUNT_KEY_JSON != ''
+        run: |
+          echo "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > /tmp/gsa-key.json
+          GOOGLE_SERVICE_ACCOUNT_KEY=/tmp/gsa-key.json node scripts/ping-google.mjs
+          rm /tmp/gsa-key.json
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY_JSON }}
