@@ -51,7 +51,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Your Spiritual Gateway | Hindu Prayers, Aartis & Scriptures`,
+    default: `${SITE_NAME} — Hindu Prayers, Aartis & Scriptures`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,

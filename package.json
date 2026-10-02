@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "seo:audit:full": "node scripts/seo-audit.mjs --full",
+    "seo:ping": "node scripts/ping-google.mjs",
+    "seo:ping:dry": "node scripts/ping-google.mjs --dry-run"
   },
   "dependencies": {
     "@fontsource/tiro-devanagari-sanskrit": "^5.2.7",

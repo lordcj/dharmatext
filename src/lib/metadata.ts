@@ -33,7 +33,8 @@ interface AartiMetaInput {
 
 export function buildAartiMetadata(aarti: AartiMetaInput): Metadata {
   const pageTitle = `${aarti.title} - ${aarti.titleHindi} | Read with Meaning`;
-  const pageDescription = `Read ${aarti.title} (${aarti.titleHindi}) online with Hindi text, English transliteration, and verse-by-verse meaning. ${aarti.description}`;
+  const rawDesc = `Read ${aarti.title} (${aarti.titleHindi}) — ${aarti.description}`;
+  const pageDescription = rawDesc.length > 155 ? rawDesc.slice(0, 152) + '...' : rawDesc;
   const pageUrl = `/aartis/${aarti.slug}`;
   const imageUrl = getAbsoluteImageUrl(aarti.imagePath);
 
@@ -82,7 +83,8 @@ interface KathaMetaInput {
 
 export function buildKathaMetadata(katha: KathaMetaInput): Metadata {
   const pageTitle = `${katha.title} - ${katha.titleHindi} | Read in Hindi & English`;
-  const pageDescription = `Read ${katha.title} (${katha.titleHindi}) — dedicated to ${katha.deity}. ${katha.description} Read time: ${katha.readTime}.`;
+  const rawDesc = `Read ${katha.title} (${katha.titleHindi}) — ${katha.description}`;
+  const pageDescription = rawDesc.length > 155 ? rawDesc.slice(0, 152) + '...' : rawDesc;
   const pageUrl = `/kathas/${katha.slug}`;
   const imageUrl = getAbsoluteImageUrl(katha.imagePath);
 
@@ -196,18 +198,18 @@ export function buildChapterMetadata(chapter: ChapterMetaInput): Metadata {
 export function buildListingMetadata(type: 'aartis' | 'kathas' | 'scriptures', count: number): Metadata {
   const configs = {
     aartis: {
-      title: `Sacred Aartis & Prayers — Read Online with Meaning | ${SITE_NAME}`,
-      description: `Browse ${count}+ sacred Hindu Aartis and prayers. Read Hanuman Chalisa, Om Jai Jagdish Hare, Jai Ganesh Deva, and more with Hindi text, transliteration, and meaning.`,
+      title: `Sacred Aartis & Prayers — Read Online | ${SITE_NAME}`,
+      description: `Browse ${count}+ Hindu Aartis. Hanuman Chalisa, Om Jai Jagdish Hare, Jai Ganesh Deva & more with Hindi text and meaning.`,
       url: '/aartis',
     },
     kathas: {
-      title: `Sacred Kathas & Vrat Stories — Read in Hindi & English | ${SITE_NAME}`,
-      description: `Read ${count}+ Vrat Kathas and sacred Hindu stories. Somvar Vrat Katha, Mangalvar Vrat Katha, Satyanarayan Katha, and more in Hindi and English.`,
+      title: `Vrat Kathas — Read in Hindi & English | ${SITE_NAME}`,
+      description: `Read ${count}+ Vrat Kathas. Somvar, Mangalvar, Satyanarayan Katha & more sacred fasting stories in Hindi and English.`,
       url: '/kathas',
     },
     scriptures: {
-      title: `Sacred Hindu Scriptures — Read Bhagavad Gita & More Online | ${SITE_NAME}`,
-      description: `Explore sacred Hindu scriptures including Bhagavad Gita, Shiva Purana, and Devi Mahatmya. Read verse-by-verse with Sanskrit text and translations.`,
+      title: `Hindu Scriptures — Bhagavad Gita & More | ${SITE_NAME}`,
+      description: `Read Bhagavad Gita, Shiva Purana, Devi Mahatmya verse-by-verse with Sanskrit text, Hindi meaning & English translation.`,
       url: '/scriptures',
     },
   };
@@ -226,11 +228,13 @@ export function buildListingMetadata(type: 'aartis' | 'kathas' | 'scriptures', c
       url: getCanonicalUrl(config.url),
       siteName: SITE_NAME,
       type: 'website',
+      images: [DEFAULT_OG_IMAGE],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: config.title,
       description: config.description,
+      images: [DEFAULT_OG_IMAGE.url],
     },
   };
 }
@@ -239,7 +243,7 @@ export function buildListingMetadata(type: 'aartis' | 'kathas' | 'scriptures', c
 
 export function buildHomepageMetadata(): Metadata {
   return {
-    title: `${SITE_NAME} — ${SITE_TAGLINE} | Hindu Prayers, Aartis & Scriptures`,
+    title: `${SITE_NAME} — Hindu Prayers, Aartis & Scriptures`,
     description: SITE_DESCRIPTION,
     alternates: {
       canonical: getCanonicalUrl('/'),
